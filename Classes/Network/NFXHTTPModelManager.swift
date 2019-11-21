@@ -12,7 +12,7 @@ private let _sharedInstance = NFXHTTPModelManager()
 final class NFXHTTPModelManager {
     static let shared = NFXHTTPModelManager()
     fileprivate var models = [NFXHTTPModel]()
-    fileprivate var filters = Set<HTTPModelShortType>()
+    var filters = Set<HTTPModelShortType>()
     private let syncQueue = DispatchQueue(label: "NFXSyncQueue")
 
     func add(_ obj: NFXHTTPModel) {

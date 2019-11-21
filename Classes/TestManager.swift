@@ -32,7 +32,8 @@ public class TestManager {
     var network: NFX
     var isShown = false
 
-    public var loginAction: ((String, String) -> Void)?
+    public var loginAction: ((String, String, String?) -> Void)?
+    var additionMenus: [[TMenu]] = []
 
     init() {
         self.network = NFX.shared
@@ -49,6 +50,12 @@ public class TestManager {
                 saveLoginAccount(desc: desc, name: name, pwd: pwd)
             }
         }
+    }
+
+    /// 添加额外的菜单，当前支持TEntryMenu(点击)、TToggleMenu(开关切换)
+    /// - Parameter menus: 第一层数组表示section, 第二层数组为同section内菜单
+    public func installMenus(_ menus: [[TMenu]]) {
+        self.additionMenus = menus
     }
 
     func saveLoginAccount(desc: String, name: String, pwd: String) {
