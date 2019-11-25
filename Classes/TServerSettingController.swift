@@ -46,10 +46,6 @@ class TServerSettingController: WKZScrollController {
                 self.view.toast("请输入正确的地址")
                 return
             }
-
-            if text.last != "/" {
-                text += "/"
-            }
         }
 
         UserDefaults[.serverEnv] = envIndex
