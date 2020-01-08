@@ -21,7 +21,6 @@ class AccountListController: UITableViewController {
         let addItem = UIBarButtonItem(title: "新增", style: .plain, target: self, action: #selector(add))
         self.navigationItem.rightBarButtonItems = [self.editButtonItem, addItem]
 
-
     }
 
     override func viewWillAppear(_ animated: Bool) {

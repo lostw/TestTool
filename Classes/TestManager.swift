@@ -32,8 +32,12 @@ public class TestManager {
     var network: NFX
     var isShown = false
 
+    // 登录方法
     public var loginAction: ((String, String, String?) -> Void)?
+    // 增加菜单
     var additionMenus: [[TMenu]] = []
+    // 扫一扫操作
+    public var onResultScanned: ((UIViewController, String) -> Bool)?
 
     init() {
         self.network = NFX.shared

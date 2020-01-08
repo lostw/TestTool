@@ -76,7 +76,13 @@ class ScanViewController: UIViewController, AVCaptureMetadataOutputObjectsDelega
             if metadataObj.stringValue != nil {
                 captureSession?.stopRunning()
 
-                let controller = H5PageController(link: metadataObj.stringValue!)
+                let result = metadataObj.stringValue!
+                if let hook = TestManager.shared.onResultScanned {
+                    if hook(self, result) {
+                        return
+                    }
+                }
+                let controller = H5PageController(link: result)
                 self.navReplaceToController(controller, animated: true)
             }
         }
